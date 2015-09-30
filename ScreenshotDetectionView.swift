@@ -15,8 +15,12 @@ class ScreenshotDetectionView: UIView {
     private var message:String!
     private var selector:Selector!
     private var alertController:UIAlertController!
+    private var repeats:Bool!
     
-    init(parent:UIViewController, title:String, message:String, selector:Selector) {
+    //MARK: -
+    //MARK: Init
+    
+    init(parent:UIViewController, title:String, message:String, selector:Selector, repeats:Bool) {
         super.init(frame: parent.view.frame)
         
         //set fields
@@ -24,6 +28,7 @@ class ScreenshotDetectionView: UIView {
         self.title = title
         self.message = message
         self.selector = selector
+        self.repeats = repeats
         
         //initialize view items
         setUpView()
@@ -35,6 +40,9 @@ class ScreenshotDetectionView: UIView {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: -
+    //MARK: Setup
     
     func setUpView() {
         
