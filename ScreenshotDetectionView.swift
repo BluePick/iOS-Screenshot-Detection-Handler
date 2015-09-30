@@ -10,11 +10,11 @@ import UIKit
 
 class ScreenshotDetectionView: UIView {
     
-    var parentViewController:UIViewController!
-    var title:String!
-    var message:String!
-    var selector:Selector!
-    var alertController:UIAlertController!
+    private var parentViewController:UIViewController!
+    private var title:String!
+    private var message:String!
+    private var selector:Selector!
+    private var alertController:UIAlertController!
     
     init(parent:UIViewController, title:String, message:String, selector:Selector) {
         super.init(frame: parent.view.frame)
