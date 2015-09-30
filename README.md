@@ -11,7 +11,7 @@ Initialize view and add as a subview
 ```swift
 //place in view controller
 let detectView = ScreenshotDetectionView(parent: self, title: "title", message: "this is a message", selector: Selector("screenshotHandler"), repeats: true)
-        view.addSubview(detectView)
+view.addSubview(detectView)
 ```
 Create a method to handle response to "ok" of alert view
 ```swift
