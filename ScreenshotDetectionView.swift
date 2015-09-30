@@ -11,7 +11,7 @@ import UIKit
 class ScreenshotDetectionView: UIView {
     
     var parentViewController:UIViewController!
-    var title:String
+    var title:String!
     var message:String!
     var selector:Selector!
     var alertController:UIAlertController!
@@ -42,14 +42,14 @@ class ScreenshotDetectionView: UIView {
         alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
         //create cancel action which should just dismiss the alert
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        let cancelAction = UIAlertAction(title: "No", style: .Cancel) { (action) in
             // dismiss view controller
         }
         alertController.addAction(cancelAction)
         
         //create ok action which should run the selector given to this view
-        let okAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            //run selector here
+        let okAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+            parentViewController.performSelector(selector)
         }
         alertController.addAction(okAction)
 
@@ -60,7 +60,7 @@ class ScreenshotDetectionView: UIView {
     
     //executes after screenshot was detected
     func userDidTakeScreenshot() {
-        parentViewController.presentViewController(alertController, animated: true)
+        parentViewController.presentViewController(alertController, animated: true, completion: nil)
     }
     
 
